@@ -1,0 +1,87 @@
+<section class="i pg fh rm ki xn vq gj qp gr hj rp hr">
+  <!-- Bg Shapes -->
+  <%= image_tag 'shape-06.svg', alt: 'Shape', class: 'h j k' %>
+  <%= image_tag 'shape-03.svg', alt: 'Shape', class: 'h l m' %>
+  <%= image_tag 'shape-17.svg', alt: 'Shape', class: 'h n o' %>
+  <%= image_tag 'shape-18.svg', alt: 'Shape', class: 'h p q' %>
+
+  <div class="animate_top bb af i va sg hh sm vk xm yi _n jp hi ao kp">
+    <!-- Bg Border -->
+    <span class="rc h r s zd/2 od zg gh"></span>
+    <span class="rc h r q zd/2 od xg mh"></span>
+
+    <div class="rj">
+      <h2 class="ek ck kk wm xb">Sign in to your Account</h2>
+      <p class="text-center mb-6">Welcome back! Please enter your credentials to sign in.</p>
+
+      <h3 class="hk yj kk wm ob mc text-center">Sign in with Social Media</h3>
+      <ul class="tc wf xf mg ec">
+        <%# <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-twitter" style="color: #00AFED; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-facebook-f" style="color: #1877F2; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-github" style="color: #79808A; font-size: 1.5rem;"></i>
+          </a>
+        </li> %>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-google" style="color: #DB4437; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+      </ul>
+
+      <span class="i rc sj hk xj">
+        <span class="rc h s z/2 nd oe rh tm"></span>
+        <span class="rc h q z/2 nd oe rh tm"></span>
+        Or, sign in with your email
+      </span>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'sb' }) do |f| %>
+      <div class="wb">
+        <%= f.label :email, class: 'rc kk wm vb' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+              class: 'vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40',
+              placeholder: 'example@gmail.com' %>
+      </div>
+
+      <div class="wb">
+        <%= f.label :password, class: 'rc kk wm vb' %>
+        <%= f.password_field :password, autocomplete: "current-password",
+              class: 'vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40',
+              placeholder: '**************' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="flex items-center justify-between wb">
+          <div class="flex items-center">
+            <%= f.check_box :remember_me, class: 'h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded' %>
+            <%= f.label :remember_me, class: 'ml-2 block text-sm text-gray-700' %>
+          </div>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-sm text-primary-600 hover:text-primary-500' %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Sign In", class: 'vd rj ek rc rg gh lk ml il _l gi hi w-full' %>
+      </div>
+    <% end %>
+
+    <p class="sj hk xj rj ob text-center">
+      Don't have an account?
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "Sign up", new_registration_path(resource_name), class: 'text-primary-600 hover:text-primary-500' %>
+      <% end %>
+    </p>
+  </div>
+</section>

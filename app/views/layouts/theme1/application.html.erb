@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiabeFree Life</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
+    <!-- fav icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="<%= image_url('favicon.ico')%>">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="canonical" href="" />
+    <%# <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Innovative integration of digital solutions, business strategies, and cutting-edge technology to develop advanced software products." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The industry-leading software development company | SKED Group" />
+    <meta property="og:description" content="Innovative integration of digital solutions, business strategies, and cutting-edge technology to develop advanced software products." />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="SKED Group" /> %>
+
+</head>
+<body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+  x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'b eh': darkMode === true}">
+    <%= render 'common/theme1/header' %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'common/theme1/footer' %>
+
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'theme1/bundle', 'data-turbo-track': 'reload' %>
+</body>
+</html>

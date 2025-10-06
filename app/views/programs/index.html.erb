@@ -1,0 +1,52 @@
+<div class="container mx-auto px-4 py-12">
+  <% if @error %>
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+      <p><%= @error %></p>
+    </div>
+  <% end %>
+
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Programs</h1>
+    <p class="text-xl text-gray-600">Choose the perfect program for your diabetes management journey</p>
+  </div>
+
+  <% if @programs.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% @programs.each do |program| %>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-2xl font-bold text-gray-900"><%= program['title'] %></h2>
+              <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
+                <%= program['program_type'].capitalize %>
+              </span>
+            </div>
+            
+            <p class="text-gray-600 mb-6"><%= truncate(program['description'], length: 150) %></p>
+            
+            <div class="mb-6">
+              <h3 class="font-semibold text-gray-900 mb-2">Key Features:</h3>
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                <% program['features'].to_s.split('\n').first(4).each do |feature| %>
+                  <li><%= feature %></li>
+                <% end %>
+              </ul>
+            </div>
+            
+            <div class="flex justify-between items-center mt-6 pt-6 border-t border-gray-200">
+              <div>
+                <span class="text-2xl font-bold text-gray-900">$<%= '%.2f' % program['price'].to_f %></span>
+                <span class="text-gray-500">/ <%= program['duration'] %> days</span>
+              </div>
+              <%= link_to 'View Details', program_path(program['id']), class: 'px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center py-12">
+      <p class="text-gray-600">No programs available at the moment. Please check back later.</p>
+    </div>
+  <% end %>
+</div>

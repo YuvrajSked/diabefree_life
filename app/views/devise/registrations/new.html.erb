@@ -1,0 +1,85 @@
+<section class="i pg fh rm ki xn vq gj qp gr hj rp hr">
+  <!-- Bg Shapes -->
+  <%= image_tag 'shape-06.svg', alt: 'Shape', class: 'h j k' %>
+  <%= image_tag 'shape-03.svg', alt: 'Shape', class: 'h l m' %>
+  <%= image_tag 'shape-17.svg', alt: 'Shape', class: 'h n o' %>
+  <%= image_tag 'shape-18.svg', alt: 'Shape', class: 'h p q' %>
+
+  <div class="animate_top bb af i va sg hh sm vk xm yi _n jp hi ao kp">
+    <!-- Bg Border -->
+    <span class="rc h r s zd/2 od zg gh"></span>
+    <span class="rc h r q zd/2 od xg mh"></span>
+
+    <div class="rj">
+      <h2 class="ek ck kk wm xb">Create an Account</h2>
+      <p class="text-center mb-6">Please enter your credentials to create an account.</p>
+
+      <h3 class="hk yj kk wm ob mc text-center">Sign up with Social Media</h3>
+      <ul class="tc wf xf mg ec">
+        <%# <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-twitter" style="color: #00AFED; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-facebook-f" style="color: #1877F2; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-github" style="color: #79808A; font-size: 1.5rem;"></i>
+          </a>
+        </li> %>
+        <li>
+          <a class="tc wf xf be dd di sg _g ch qm ml il bm rl/40 ym/40" href="#">
+            <i class="fab fa-google" style="color: #DB4437; font-size: 1.5rem;"></i>
+          </a>
+        </li>
+      </ul>
+
+      <span class="i rc sj hk xj">
+        <span class="rc h s z/2 nd oe rh tm"></span>
+        <span class="rc h q z/2 nd oe rh tm"></span>
+        Or, sign up with your email
+      </span>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'sb' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="wb">
+        <%= f.label :email, class: 'rc kk wm vb' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+              class: 'vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40',
+              placeholder: 'example@gmail.com' %>
+
+      </div>
+
+      <div class="wb">
+        <%= f.label :password, class: 'rc kk wm vb' %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password",
+            class: 'vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40',
+            placeholder: '**************' %>
+      </div>
+
+      <div class="wb">
+        <%= f.label :password_confirmation, class: 'rc kk wm vb' %>
+        <%= f.password_field :password_confirmation, autocomplete: "confirm-password",
+            class: 'vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40',
+            placeholder: '**************' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign In", class: 'vd rj ek rc rg gh lk ml il _l gi hi w-full' %>
+      </div>
+    <% end %>
+
+    <p class="sj hk xj rj ob text-center">
+      Have an account?
+        <%= link_to "Sign In", new_user_session_path(resource_name), class: 'text-primary-600 hover:text-primary-500' %>
+    </p>
+  </div>
+</section>
