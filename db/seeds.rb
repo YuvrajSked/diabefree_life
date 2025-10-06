@@ -44,3 +44,4 @@ programs_data.each do |program_attrs|
   program.update!(program_attrs)
 end
 puts "Seeded #{Program.count} programs"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

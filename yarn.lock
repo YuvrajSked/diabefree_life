@@ -2,14 +2,23 @@
 # yarn lockfile v1
 
 
-"@activeadmin/activeadmin@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-3.3.0.tgz#f5163cf2235a2a42efda8aa78863c61d2fc863bc"
-  integrity sha512-YVWHMI+dml5/iKleZJQ3VTvb6kbg/v8F7gsyOmxxqbxqJ6ofEK9X8CKUljA11IAWNpxV7i7ygG2WwZdMsgtcpA==
+"@activeadmin/activeadmin@4.0.0-beta15":
+  version "4.0.0-beta15"
+  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-4.0.0-beta15.tgz#5cfa3274826234073f138ae3507ea8e990475f84"
+  integrity sha512-TRQtxZ7lg/0lrxpRzanQwAoQnkYTgjpYkhk/N9UZQHhEans9Ra35blw2tO87NEdpYhMdos/hoHOTumczganHqw==
   dependencies:
-    jquery "^3.4.1"
-    jquery-ui "^1.13.3"
-    jquery-ujs "^1.2.2"
+    "@rails/ujs" "7.1.400"
+    flowbite "2.3.0"
+
+"@popperjs/core@^2.9.3":
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
+"@rails/ujs@7.1.400":
+  version "7.1.400"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.1.400.tgz#b2a76bdccb5197b9e866954536106386c87cfab5"
+  integrity sha512-YwvXm3BR5tn+VCAKYGycLejMRVZE3Ionj5gFjEeGXCZnI0Rpi+7dKpmyu90kdUY7dRUFpHTdu9zZceEzFLl38w==
 
 autoprefixer@^10.4.21:
   version "10.4.21"
@@ -54,27 +63,23 @@ escalade@^3.2.0:
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.2.0.tgz#011a3f69856ba189dffa7dc8fcce99d2a87903e5"
   integrity sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==
 
+flowbite@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/flowbite/-/flowbite-2.3.0.tgz#0730e35d8b0d1dcdea26bb27d848bd9c0141cde1"
+  integrity sha512-pm3JRo8OIJHGfFYWgaGpPv8E+UdWy0Z3gEAGufw+G/1dusaU/P1zoBLiQpf2/+bYAi+GBQtPVG86KYlV0W+AFQ==
+  dependencies:
+    "@popperjs/core" "^2.9.3"
+    mini-svg-data-uri "^1.4.3"
+
 fraction.js@^4.3.7:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
-jquery-ui@^1.13.3:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.14.1.tgz#ba342ea3ffff662b787595391f607d923313e040"
-  integrity sha512-DhzsYH8VeIvOaxwi+B/2BCsFFT5EGjShdzOcm5DssWjtcpGWIMsn66rJciDA6jBruzNiLf1q0KvwMoX1uGNvnQ==
-  dependencies:
-    jquery ">=1.12.0 <5.0.0"
-
-jquery-ujs@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/jquery-ujs/-/jquery-ujs-1.2.3.tgz#dcac6026ab7268e5ee41faf9d31c997cd4ddd603"
-  integrity sha512-59wvfx5vcCTHMeQT1/OwFiAj+UffLIwjRIoXdpO7Z7BCFGepzq9T9oLVeoItjTqjoXfUrHJvV7QU6pUR+UzOoA==
-
-"jquery@>=1.12.0 <5.0.0", jquery@^3.4.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
-  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
+mini-svg-data-uri@^1.4.3:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
+  integrity sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==
 
 nanoid@^3.3.11:
   version "3.3.11"
