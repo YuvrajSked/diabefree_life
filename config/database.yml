@@ -85,9 +85,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: diabefree_life_production
-    username: diabefree_life
-    password: <%= ENV["DIABEFREE_LIFE_DATABASE_PASSWORD"] %>
+    database: diabefreelife-db
+    username: <%= ENV["DATABASE_USERNAME"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: diabefree_life_production_cache
