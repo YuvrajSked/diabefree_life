@@ -9,6 +9,12 @@
 #   end
 
 
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed_file|
+  puts "Loading seed file: #{seed_file}"
+  load seed_file
+end
+
+
 programs_data = [
   {
     title: "Diabetes Reversal Program",
@@ -39,9 +45,9 @@ programs_data = [
   }
 ]
 
-programs_data.each do |program_attrs|
-  program = Program.find_or_initialize_by(title: program_attrs[:title])
-  program.update!(program_attrs)
-end
-puts "Seeded #{Program.count} programs"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# programs_data.each do |program_attrs|
+#   program = Program.find_or_initialize_by(title: program_attrs[:title])
+#   program.update!(program_attrs)
+# end
+# puts "Seeded #{Program.count} programs"
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

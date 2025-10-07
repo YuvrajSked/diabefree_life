@@ -13,4 +13,8 @@ class Program < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :duration, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :program_type, presence: true, inclusion: { in: program_types.keys }
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "active", "created_at", "description", "duration", "features", "id", "id_value", "price", "program_type", "title", "updated_at" ]
+  end
 end
