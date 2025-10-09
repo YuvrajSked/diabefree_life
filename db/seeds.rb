@@ -52,6 +52,22 @@ end
 puts "Seeded #{Program.count} programs"
 
 # Admin User
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')# if Rails.env.development?
 
+admin_user_date = [
+  {
+    email: 'admin@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+  },
+  {
+    email: 'admin2@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+  }
+]
+
+admin_user_date.each do |admin_user_attrs|
+  admin_user = AdminUser.find_or_initialize_by(email: admin_user_attrs[:email])
+  admin_user.update!(admin_user_attrs)
+end
 puts "Seeded #{AdminUser.count} Admin User"
