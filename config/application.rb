@@ -23,14 +23,6 @@ module DiabefreeLife
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    # Enable asset pipeline
     config.assets.enabled = true
-    
-    # Add theme assets path
-    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'theme1')
-    
-    # Precompile additional assets
-    config.assets.precompile += %w( application.theme1.css )
   end
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: 1
+  location: MyString
+  content: MyText
+  hba1c_before: 9.99
+  hba1c_after: 9.99
+  weight_lost: 9.99
+  program_duration: 1
+  approved: false
+
+two:
+  name: MyString
+  age: 1
+  location: MyString
+  content: MyText
+  hba1c_before: 9.99
+  hba1c_after: 9.99
+  weight_lost: 9.99
+  program_duration: 1
+  approved: false

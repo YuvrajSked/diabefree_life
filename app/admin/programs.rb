@@ -61,8 +61,8 @@ ActiveAdmin.register Program do
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
       f.input :title
-      f.input :description
-      f.input :features
+      f.input :description, as: :text, input_html: { rows: 5, cols: 50 }
+      f.input :features, as: :text, input_html: { rows: 5, cols: 50 }
       f.input :price
       f.input :duration
       f.input :program_type

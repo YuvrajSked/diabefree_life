@@ -1,0 +1,162 @@
+<!-- ===== Testimonials Start ===== -->
+<section class="hj rp hr">
+  <!-- Section Title Start -->
+  <div>
+    <div class="animate_top bb ze rj ki xn vq">
+      <h2 class="fk vj pr kk wm on/5 gq/2 bb _b">Client’s Testimonials</h2>
+      <p class="bb on/5 wo/5 hq">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.</p>
+    </div>
+  </div>
+  <!-- Section Title End -->
+
+  <div class="bb ze ki xn ar">
+    <div class="animate_top jb cq">
+      <!-- Slider main container -->
+      <div class="swiper testimonial-01">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <% @testimonials.each do |testimonial| %>
+            <div class="swiper-slide">
+              <div class="i hh rm sg vk xm bi qj">
+                <!-- Border Shape -->
+                <span class="rc je md/2 gh xg h q r"></span>
+                <span class="rc je md/2 mh yg h q p"></span>
+
+                <div class="tc sf rn tn un zf dp">
+                  <% if testimonial.image.attached? %>
+                    <%= image_tag testimonial.image, alt: testimonial.name, class: 'testimonial_image bf' %>
+                  <% else %>
+                    <%= image_tag 'testimonial.png', alt: testimonial.name, class: 'testimonial_image bf' %>
+                  <% end %>
+                  <div>
+                    <%= image_tag 'icon-quote.svg', alt: 'Quote' %>
+                    <p class="testimonial_p ek ik kc fb">
+                      <%= testimonial.truncated_content %>
+                    </p>
+
+                    <div class="flex flex-col md:flex-row gap-4 w-full">
+                      <!-- Left Column: Personal Info -->
+                      <div class="flex-1 space-y-1">
+                        <div class="space-y-2">
+                          <div class="rc ek xj kk wm zb"><%= testimonial.name %></div>
+                          <div class="flex flex-col space-y-1">
+                            <% if testimonial.location.present? %>
+                              <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span class="rc"><%= testimonial.location %></span>
+                              </div>
+                            <% end %>
+
+                            <% if testimonial.age.present? %>
+                              <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                <span class="rc">Age: <%= testimonial.age %></span>
+                              </div>
+                            <% end %>
+
+                            <% if testimonial.program_duration.present? %>
+                              <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                  <span class="font-medium">Program: </span>
+                                  <span class="text-blue-500 ml-1"><%= pluralize(testimonial.program_duration, 'month') %></span>
+                                </div>
+                              </div>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Right Column: Health Metrics -->
+                      <div class="flex-1 space-y-2">
+                        <% if testimonial.hba1c_before.present? && testimonial.hba1c_after.present? %>
+                          <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+
+                            <div>
+                              <span class="font-medium">HbA1c: </span>
+                              <span class="text-red-500"><%= testimonial.hba1c_before %></span>
+                              <span class="mx-1">→</span>
+                              <span class="text-green-500"><%= testimonial.hba1c_after %></span>
+                              <span class="text-xs text-gray-500 ml-1">
+                                (<%= testimonial.hba1c_improvement_percentage %>% improvement)
+                              </span>
+                            </div>
+                          </div>
+                        <% end %>
+                        <% if testimonial.weight_before.present? && testimonial.weight_after.present? %>
+                          <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3.9 1.63M13 16h-1v4h-2v-4H8v-3h8v3h-2zm6-9a5 5 0 11-10 0 5 5 0 0110 0z"></path>
+                            </svg>
+                            <div>
+                              <span class="font-medium">Weight: </span>
+                              <span class="text-red-500"><%= testimonial.weight_before %> kg</span>
+                              <span class="mx-1">→</span>
+                              <span class="text-green-500"><%= testimonial.weight_after %> kg</span>
+                              <span class="text-xs text-gray-500 ml-1">
+                                (<%= testimonial.weight_loss.round(1) %> kg, <%= testimonial.weight_loss_percentage %>%)
+                              </span>
+                            </div>
+                          </div>
+                        <% end %>
+
+                        <% if testimonial.bgl_before.present? && testimonial.bgl_after.present? %>
+                          <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.69l.95 1.92c2.36 4.76 5.14 10.72 5.14 14.39a5.57 5.57 0 01-5.57 5.57 5.57 5.57 0 01-5.57-5.57c0-3.67 2.78-9.63 5.14-14.39L12 2.69z"></path>
+                            </svg>
+
+                            <div>
+                              <span class="font-medium">BGL: </span>
+                              <span class="text-red-500"><%= testimonial.bgl_before %></span>
+                              <span class="mx-1">→</span>
+                              <span class="text-green-500"><%= testimonial.bgl_after %></span>
+                              <span class="text-xs text-gray-500 ml-1">
+                                (<%= testimonial.bgl_improvement %> mg/dL, <%= testimonial.bgl_improvement_percentage %>%)
+                              </span>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- If we need navigation -->
+        <div class="tc wf xf fg jb">
+          <div class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
+            <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"
+                fill="" />
+            </svg>
+          </div>
+          <div class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
+            <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
+                fill="" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== Testimonials End ===== -->

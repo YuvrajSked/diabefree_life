@@ -52,8 +52,8 @@ ActiveAdmin.register Faq do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :question
-      f.input :answer
+      f.input :question, as: :text, input_html: { rows: 5, cols: 50 }
+      f.input :answer, as: :text, input_html: { rows: 5, cols: 50 }
       f.input :position
       f.input :active
     end

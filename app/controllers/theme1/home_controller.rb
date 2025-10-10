@@ -4,6 +4,7 @@ class Theme1::HomeController < ApplicationController
   def home
     @programs = Program.active.order(created_at: :desc).limit(3)
     @faqs = Faq.active.order(position: :asc).limit(6)
+    @testimonials = Testimonial.approved.order(created_at: :desc).limit(6)
   end
 
   def programs

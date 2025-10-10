@@ -71,3 +71,4 @@ admin_user_date.each do |admin_user_attrs|
   admin_user.update!(admin_user_attrs)
 end
 puts "Seeded #{AdminUser.count} Admin User"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -4,5 +4,12 @@
 Rails.application.config.assets.version = "1.0"
 
 # Add additional assets to the asset load path.
-Rails.application.config.assets.paths << Rails.root.join('app', 'javascript', 'theme1')
-Rails.application.config.assets.precompile += %w( theme1/bundle.js )
+Rails.application.config.assets.paths << Rails.root.join("app", "javascript", "theme1")
+Rails.application.config.assets.precompile += %w[ theme1/bundle.js ]
+
+Rails.application.config.assets.paths << Rails.root.join("app", "assets", "**", "*")
+
+Rails.application.config.assets.precompile += Dir[Rails.root.join("app", "assets", "**", "*")]
+
+# Explicitly include theme1 CSS files
+Rails.application.config.assets.precompile += %w[ application.tailwind.css ]
