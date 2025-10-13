@@ -1,8 +1,8 @@
 ActiveAdmin.register Testimonial do
   # Specify parameters which should be permitted for assignment
-  permit_params :name, :age, :location, :content, :hba1c_before, :hba1c_after, 
-                :weight_before, :weight_after, :bgl_before, :bgl_after, 
-                :program_duration, :approved, :image
+  permit_params :name, :age, :location, :content, :hba1c_before, :hba1c_after,
+                :weight_before, :weight_after, :bgl_before, :bgl_after,
+                :program_duration, :approved, :image, :remove_image
 
   # or consider:
   #
@@ -32,7 +32,12 @@ ActiveAdmin.register Testimonial do
   filter :created_at
   filter :updated_at
 
-  # Add or remove columns to toggle their visibility in the index action
+  before_save do |testimonial|
+    if testimonial.remove_image == '1'
+      testimonial.image.purge_later if testimonial.image.attached?
+    end
+  end
+
   index do
     selectable_column
     id_column
@@ -89,6 +94,20 @@ ActiveAdmin.register Testimonial do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
+      f.inputs do
+        if f.object.image.attached?
+          div do
+            span "Current Image:"
+            br
+            span image_tag(f.object.image.variant(resize_to_limit: [150, 150]))
+          end
+          f.input :remove_image, as: :boolean, label: "Remove Image"
+        else
+          div do
+            span "No image uploaded"
+          end
+        end
+      end
       f.input :image, as: :file
       f.input :name
       f.input :age

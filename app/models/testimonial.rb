@@ -1,5 +1,7 @@
 class Testimonial < ApplicationRecord
   has_one_attached :image
+
+  attr_accessor :remove_image
   # Validations
 
   validates :name, presence: true
