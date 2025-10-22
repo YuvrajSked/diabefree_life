@@ -6,30 +6,31 @@
       <div class="tc uf ap gg fp">
         <div class="animate_top zd/2 to/4">
           <span class="fk vj zp kk wm wb">
-            <%= link_to root_path, class: 'flex items-center' do %>
-              DiabeFree Life
+            <%= link_to root_path, class: "flex items-center" do %>
+              <%= image_tag current_organization_light_logo_url, alt: "Logo Light", class: "xc nm" %>
+              <%= image_tag current_organization_dark_logo_url, alt: "Logo Dark", class: "om" %>
             <% end %>
           </span>
 
           <p class="lc fb">Reverse Your Diabetes Naturally.</p>
           <ul class="tc wf fg">
             <li>
-              <%= link_to "https://www.facebook.com/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_facebook_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-facebook-f th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://twitter.com/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_twitter_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-twitter th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-            <%= link_to "https://www.linkedin.com/in/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+            <%= link_to organization_linkedin_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-linkedin-in th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://www.google.com", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_google_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-google th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
@@ -42,12 +43,12 @@
             <h4 class="kk wm tj ec">Quick Links</h4>
 
             <ul>
-              <li><%= link_to "Home", theme1_home_home_path, class: 'sc xl vb' %></li>
-              <li><%= link_to "Programs", theme1_home_programs_path, class: 'sc xl vb' %></li>
+              <li><%= link_to "Home", theme1_home_home_path, class: "sc xl vb" %></li>
+              <li><%= link_to "Programs", theme1_home_programs_path, class: "sc xl vb" %></li>
               <li>
-                <%= link_to "Careers", '#', class: 'sc xl vb' %>
+                <%= link_to "Careers", "#", class: "sc xl vb" %>
               </li>
-              <li><%= link_to "FAqs", '#', class: 'sc xl vb' %></li>
+              <li><%= link_to "FAqs", theme1_home_faqs_path, class: "sc xl vb" %></li>
             </ul>
           </div>
 
@@ -55,21 +56,25 @@
             <h4 class="kk wm tj ec">Services</h4>
 
             <ul>
-              <li><a href="#!" class="sc xl vb">Service 1</a></li>
-              <li><a href="#!" class="sc xl vb">Service 2</a></li>
-              <li><a href="#!" class="sc xl vb">Service 3</a></li>
-              <li><a href="#!" class="sc xl vb">Service 4</a></li>
+              <li><%= link_to "Service 1", "#", class: "sc xl vb" %></li>
+              <li><%= link_to "Service 2", "#", class: "sc xl vb" %></li>
+              <li><%= link_to "Service 3", "#", class: "sc xl vb" %></li>
+              <li><%= link_to "Service 4", "#", class: "sc xl vb" %></li>
             </ul>
           </div>
 
           <div class="animate_top">
             <h4 class="kk wm tj ec">Support</h4>
-
             <ul>
-              <li><a href="#!" class="sc xl vb">Support 1</a></li>
-              <li><a href="#!" class="sc xl vb">Support 2</a></li>
-              <li><a href="#!" class="sc xl vb">Support 3</a></li>
-              <li><a href="#!" class="sc xl vb">Support 4</a></li>
+              <li>
+                  <%= link_to "Email: #{organization_email}", "mailto:#{organization_email}", class: "sc xl vb" %>
+              </li>
+              <li>
+                  <%= link_to "Phone Number: #{organization_phone}", "tel:#{organization_phone}", class: "sc xl vb" %>
+              </li>
+              <li>
+                <%= link_to "Skype Email: #{organization_email}", "mailto:#{organization_email}", class: "sc xl vb" %>
+              </li>
             </ul>
           </div>
 
@@ -108,14 +113,14 @@
     <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
       <div class="animate_top">
         <ul class="tc wf gg">
-          <li><a href="#!" class="xl">English</a></li>
-          <li><a href="#!" class="xl">Privacy Policy</a></li>
-          <li><a href="#!" class="xl">Support</a></li>
+          <li><%= link_to "English", "#", class: "xl" %></li>
+          <li><%= link_to "Privacy Policy", "#", class: "xl" %></li>
+          <li><%= link_to "Support", "#support", class: "xl" %></li>
         </ul>
       </div>
 
       <div class="animate_top">
-        <p>&copy; 2025 Base. All rights reserved. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+        <p>&copy; 2025 Base. All rights reserved. Distributed by <%= link_to "ThemeWagon", "https://themewagon.com", target: "_blank" %></p>
       </div>
     </div>
     <!-- Footer Bottom -->
@@ -123,8 +128,8 @@
 </footer>
 <!-- ===== Footer End ===== -->
 <!-- ====== Back To Top Start ===== -->
-<button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
+<button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: "smooth"})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ "uc" : scrollTop }">
   <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path
       d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />

@@ -20,7 +20,9 @@ ActiveAdmin.register Program do
   filter :features
   filter :price
   filter :duration
-  filter :program_type
+  filter :program_type, as: :select, collection: -> {
+    Program.filter_enum_options(:program_type)
+  }
   filter :active
   filter :created_at
   filter :updated_at
@@ -65,7 +67,7 @@ ActiveAdmin.register Program do
       f.input :features, as: :text, input_html: { rows: 5, cols: 50 }
       f.input :price
       f.input :duration
-      f.input :program_type
+      f.input :program_type,as: :select, collection: Program.enum_options(:program_type)
       f.input :active
     end
     f.actions

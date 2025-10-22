@@ -33,8 +33,8 @@ ActiveAdmin.register Testimonial do
   filter :updated_at
 
   before_save do |testimonial|
-    if testimonial.remove_image == '1'
-      testimonial.image.purge_later if testimonial.image.attached?
+    if testimonial.remove_image == "1" && testimonial.image.attached?
+      testimonial.image.purge_later
     end
   end
 
@@ -95,11 +95,11 @@ ActiveAdmin.register Testimonial do
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
       f.inputs do
-        if f.object.image.attached?
+        if f.object.image.attached? && f.object.persisted?
           div do
             span "Current Image:"
             br
-            span image_tag(f.object.image.variant(resize_to_limit: [150, 150]))
+            span image_tag(f.object.image.variant(resize_to_limit: [ 150, 150 ]))
           end
           f.input :remove_image, as: :boolean, label: "Remove Image"
         else

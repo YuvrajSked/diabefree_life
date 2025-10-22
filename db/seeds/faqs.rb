@@ -1,5 +1,21 @@
 # Clear existing FAQs
+FaqBanner.delete_all
 Faq.delete_all
+
+faq_banner_data= [
+  {
+    title: "Frequently Asked Questions",
+    subtitle: "Find answers to common questions about our diabetes reversal program",
+    description: "Find answers to common questions about our diabetes reversal program"
+  }
+]
+
+faq_banner_data.each do |faq_banner_attrs|
+  FaqBanner.create!(faq_banner_attrs)
+  puts "Created FAQ Banner: #{faq_banner_attrs[:title]}"
+end
+
+puts "Successfully created #{FaqBanner.count} FAQ Banners!"
 
 puts 'Creating sample FAQs...'
 

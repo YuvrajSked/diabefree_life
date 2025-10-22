@@ -5,7 +5,7 @@
     <%#= image_tag 'shape-02.svg', alt: 'shape', class: 'xc 2xl:ud-block h u p va' %>
     <%#= image_tag 'shape-03.svg', alt: 'shape', class: 'xc 2xl:ud-block h v w va' %>
     <%= image_tag 'shape-04.svg', alt: 'shape', class: 'h q r' %>
-    <%= image_tag 'theme1/dr_anoop_gupta.webp', alt: 'Dr, Anoop Gupta', class: 'h q r ua', style: 'height: 550px; width: auto; left: 150px; top: 120px' %>
+    <%= image_tag 'theme1/about_us.webp', alt: 'Dr, Anoop Gupta', class: 'h q r ua', style: 'height: 550px; width: auto; left: 150px; top: 120px' %>
   </div>
 
   <!-- Hero Content -->
@@ -27,10 +27,10 @@
         </div>
 
         <div class="tc tf yo zf mb">
-          <a href="#!" class="ek jk lk gh gi hi rg ml il vc _d _l">Book Free Consultation</a>
+          <%= link_to 'Book Free Consultation', '#', class: 'ek jk lk gh gi hi rg ml il vc _d _l' %>
 
           <span class="tc sf">
-            <a href="#!" class="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
+            <%= link_to "Call us #{organization_phone}", '#', class: 'inline-block ek xj kk wm' %>
             <span class="inline-block">For any question or concern</span>
           </span>
         </div>

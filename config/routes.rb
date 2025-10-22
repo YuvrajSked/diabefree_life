@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   namespace :theme1, path: "", as: "theme1_home", controller: "home" do
     get "home"
     get "programs"
+    get "faqs"
     get "programs/:id", to: "home#show_program", as: :program
   end
 

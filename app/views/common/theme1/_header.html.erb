@@ -6,9 +6,8 @@
 
         <span class="fk vj zp kk wm wb header_logo">
           <%= link_to root_path do %>
-            <%# DiabeFree Life %>
-            <%= image_tag "theme1/DiabeFree Life 3.svg", alt: "Logo Light", class: "om" %>
-            <%= image_tag "theme1/DiabeFree Life 4.svg", alt: "Logo Dark", class: "xc nm" %>
+            <%= image_tag current_organization_light_logo_url, alt: "Logo Light", class: "xc nm" %>
+            <%= image_tag current_organization_dark_logo_url, alt: "Logo Dark", class: "om" %>
           <% end %>
         </span>
 
@@ -36,7 +35,7 @@
           <li><%= link_to "Services", '#', class: 'xl' %>
           <li><%= link_to "Program", theme1_home_programs_path, class: 'xl' %> 
           </li>
-          <li><%= link_to "Contact", '#', class: 'xl' %>
+          <li><%= link_to "Contact", '#support', class: 'xl' %>
           </li>
         </ul>
       </nav>

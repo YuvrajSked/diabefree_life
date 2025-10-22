@@ -1,6 +1,6 @@
 .about_img{
   width: auto;
-  height: 400px;
+  height: auto;
   left: 150px;
 }
 
@@ -165,4 +165,112 @@
 .text-green-900 {
   color: #10B981;
   font-weight: 900;
+}
+
+.text-pink {
+  color: #f36a8d;
+}
+
+.text-pink-100 {
+  color: #f36a8d;
+  font-weight: 100;
+}
+
+.text-pink-200 {
+  color: #f36a8d;
+  font-weight: 200;
+}
+
+.text-pink-300 {
+  color: #f36a8d;
+  font-weight: 300;
+}
+
+.text-pink-400 {
+  color: #f36a8d;
+  font-weight: 400;
+}
+
+.text-pink-500 {
+  color: #f36a8d;
+  font-weight: 500;
+}
+
+.text-pink-600 {
+  color: #f36a8d;
+  font-weight: 600;
+}
+
+.text-pink-700 {
+  color: #f36a8d;
+  font-weight: 700;
+}
+
+.text-pink-800 {
+  color: #f36a8d;
+  font-weight: 800;
+}
+
+.text-pink-900 {
+  color: #f36a8d;
+  font-weight: 900;
+}
+
+/* ===== Marquee Styles ===== */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.marquee__inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.marquee__item {
+  display: inline-block;
+  margin-right: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Pause on hover */
+.marquee:hover .marquee__inner {
+  animation-play-state: paused;
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__inner {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Team Social Icons Hover Effect ===== */
+.xa ul li a i {
+  font-size: 15px;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.xa ul li a:hover i {
+  color: #F36A8D !important;
+  transform: scale(1.1);
 }

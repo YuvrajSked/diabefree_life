@@ -29,19 +29,19 @@
 
         <div class="fb">
           <h4 class="wj kk wm cc">Email Address</h4>
-          <p><a href="#!">support@startup.com</a></p>
+          <p><%= link_to organization_email, "mailto:#{organization_email}" %></p>
         </div>
         <div class="fb">
           <h4 class="wj kk wm cc">Office Location</h4>
-          <p>76/A, Green valle, Califonia USA.</p>
+          <p><%= link_to organization_address, "https://www.google.com/maps/search/?api=1&query=#{organization_address}" %></p>
         </div>
         <div class="fb">
           <h4 class="wj kk wm cc">Phone Number</h4>
-          <p><a href="#!">+009 8754 3433 223</a></p>
+          <p><%= link_to organization_phone, "tel:#{organization_phone}" %></p>
         </div>
         <div class="fb">
           <h4 class="wj kk wm cc">Skype Email</h4>
-          <p><a href="#!">example@yourmail.com</a></p>
+          <p><%= link_to organization_email, "mailto:#{organization_email}" %></p>
         </div>
 
         <span class="rc nd rh tm lc fb"></span>
@@ -50,22 +50,22 @@
           <h4 class="wj kk wm qb">Social Media</h4>
           <ul class="tc wf fg">
             <li>
-              <%= link_to "https://www.facebook.com/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_facebook_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-facebook-f th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://twitter.com/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_twitter_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-twitter th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-            <%= link_to "https://www.linkedin.com/in/", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+            <%= link_to organization_linkedin_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-linkedin-in th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://www.google.com", target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
+              <%= link_to organization_google_url, target: "_blank", rel: "noopener noreferrer", class: "c tc wf xf ie ld rg ml il tl" do %>
                 <i class="fa-brands fa-google th lm ml il" style="font-size: 20px"></i>
               <% end %>
             </li>

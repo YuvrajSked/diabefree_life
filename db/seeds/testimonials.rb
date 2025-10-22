@@ -1,3 +1,25 @@
+TestimonialBanner.delete_all
+Testimonial.delete_all
+puts 'Creating sample testimonial Banners...'
+
+testimonial_banner_data = [
+  {
+    title: "Client’s Testimonials",
+    subtitle: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
+  }
+]
+
+testimonial_banner_data.each do |testimonial_banner_attrs|
+  testimonial_banner = TestimonialBanner.find_or_initialize_by(title: testimonial_banner_attrs[:title])
+  testimonial_banner.update!(testimonial_banner_attrs)
+end
+puts "Seeded #{TestimonialBanner.count} testimonial banners"
+
+
+
+puts 'Creating sample Testimonials...'
+
 testimonials_data = testimonials = [
   {
     name: "Aftab",

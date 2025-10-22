@@ -24,9 +24,9 @@ class Testimonial < ApplicationRecord
   # Default values
   after_initialize :set_defaults, if: :new_record?
 
-  def self.ransackable_attributes(auth_object = nil)
-    %w[ age content created_at approved hba1c_after hba1c_before id id_value location name program_duration updated_at weight_before weight_after bgl_before bgl_after ]
-  end
+  # def self.ransackable_attributes(auth_object = nil)
+  #   %w[ age content created_at approved hba1c_after hba1c_before id id_value location name program_duration updated_at weight_before weight_after bgl_before bgl_after ]
+  # end
 
   def hba1c_improvement_percentage
     return nil unless hba1c_before.present? && hba1c_after.present? && hba1c_before.positive?

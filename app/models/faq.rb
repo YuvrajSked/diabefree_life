@@ -10,9 +10,9 @@ class Faq < ApplicationRecord
 
 
   # For ActiveAdmin search/filtering
-  def self.ransackable_attributes(auth_object = nil)
-    ["active", "answer", "created_at", "id", "position", "question", "updated_at"]
-  end
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ["active", "answer", "created_at", "id", "position", "question", "updated_at"]
+  # end
 
   # For ActiveAdmin display name in dropdowns
   def to_s
