@@ -5,6 +5,8 @@ class Team < ApplicationRecord
 
   has_one_attached :profile_image
 
+  attr_accessor :remove_profile_image
+
   # Enums
   enum :designation, { doctor: 0, nutritionist: 1, coach: 2 }
 

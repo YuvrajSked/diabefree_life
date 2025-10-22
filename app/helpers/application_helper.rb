@@ -62,4 +62,30 @@ module ApplicationHelper
   def organization_phone
     Organization.first&.phone.presence || "**********"
   end
+
+
+  def star_rating(rating, max_stars: 5)
+    rating = rating.to_f
+    full_stars = rating.floor
+    half_star = (rating - full_stars >= 0.5)
+    empty_stars = max_stars - full_stars - (half_star ? 1 : 0)
+
+    # Build HTML for stars
+    stars_html = ""
+
+    # Full stars (bright yellow)
+    full_stars.times do
+      stars_html += content_tag(:i, "", class: "fa-solid fa-star text-xl", style: "color: yellow;")
+    end
+
+    # Half star (bright yellow)
+    stars_html += content_tag(:i, "", class: "fa-solid fa-star-half-stroke text-xl", style: "color: yellow;") if half_star
+
+    # Empty stars (gray)
+    empty_stars.times do
+      stars_html += content_tag(:i, "", class: "fa-regular fa-star text-gray-300 text-xl")
+    end
+
+    stars_html.html_safe
+  end
 end

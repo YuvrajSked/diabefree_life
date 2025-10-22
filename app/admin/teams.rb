@@ -1,6 +1,6 @@
 ActiveAdmin.register Team do
   # Specify parameters which should be permitted for assignment
-  permit_params :first_name, :last_name, :email, :phone, :designation, :facebook_profile_url, :twitter_profile_url, :linkedin_profile_url, :google_profile_url, :profile_image,
+  permit_params :first_name, :last_name, :email, :phone, :designation, :facebook_profile_url, :twitter_profile_url, :linkedin_profile_url, :google_profile_url, :profile_image, :remove_profile_image,
   address_attributes: [ :id, :street, :city, :state, :country, :pincode, :_destroy ]
 
 
@@ -22,6 +22,12 @@ ActiveAdmin.register Team do
   filter :google_profile_url
   filter :created_at
   filter :updated_at
+
+  before_save do |team|
+    if team.remove_profile_image == '1' && team.profile_image.attached?
+      team.profile_image.purge_later
+    end
+  end
 
   # Add or remove columns to toggle their visibility in the index action
   index do

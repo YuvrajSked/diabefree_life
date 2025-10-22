@@ -2,6 +2,7 @@ class Theme1::HomeController < ApplicationController
   layout "theme1/application"
 
   def home
+    @hero_banner = HeroBanner.first
     @programs = Program.active.order(created_at: :desc).limit(3)
     @faqs = Faq.active.order(position: :asc).limit(6)
     @faq_banner = FaqBanner.first

@@ -5,25 +5,28 @@
     <%#= image_tag 'shape-02.svg', alt: 'shape', class: 'xc 2xl:ud-block h u p va' %>
     <%#= image_tag 'shape-03.svg', alt: 'shape', class: 'xc 2xl:ud-block h v w va' %>
     <%= image_tag 'shape-04.svg', alt: 'shape', class: 'h q r' %>
-    <%= image_tag 'theme1/about_us.webp', alt: 'Dr, Anoop Gupta', class: 'h q r ua', style: 'height: 550px; width: auto; left: 150px; top: 120px' %>
+    <% if @hero_banner.image.attached? %>
+      <%= image_tag @hero_banner.image, alt: 'Dr. Anoop Gupta', class: 'h q r ua', style: 'height: 550px; width: auto; left: 150px; top: 120px' %>
+    <% else %>
+      <%= image_tag 'theme1/about_us.webp', alt: 'Dr. Anoop Gupta', class: 'h q r ua', style: 'height: 550px; width: auto; left: 150px; top: 120px' %>
+    <% end %>
+
   </div>
 
   <!-- Hero Content -->
   <div class="bb ze ki xn 2xl:ud-px-0">
     <div class="tc _o">
       <div class="animate_left jn/2">
-        <h1 class="fk vj zp or kk wm wb">Reverse Your Diabetes Naturally.</h1>
+        <h1 class="fk vj zp or kk wm wb"> <%= @hero_banner.title || "Reverse Your Diabetes Naturally."%></h1>
         <p class="fq">
-          Join <strong>Anoop Gupta&apos;s</strong> proven diabetes reversal program.
-          Transform your life with sustainable lifestyle changes backed by clinical results.
+          <%= @hero_banner.description || "Join <strong>Anoop Gupta&apos;s</strong> proven diabetes reversal program.
+          Transform your life with sustainable lifestyle changes backed by clinical results." %>
         </p>
 
         <!-- Simple Star Rating -->
         <div class="flex space-x-1 mb-6">
-          <% 5.times do %>
-            <i class="fa-solid fa-star text-xl" style="color: yellow;"></i>
-          <% end %>
-          <span class="ml-2 text-gray-700">4.8/5 from 2000+ patients</span>
+          <%= star_rating(@hero_banner.rating) %>
+          <span class="ml-2 text-gray-700"><%= @hero_banner.rating%>/5 from <%= @hero_banner.patient_count  || "2000" %>+ patients</span>
         </div>
 
         <div class="tc tf yo zf mb">
