@@ -9,7 +9,7 @@ class Theme1::HomeController < ApplicationController
     @testimonials = Testimonial.approved.order(created_at: :desc).limit(6)
     @program_banner = ProgramBanner.first
     @team_banner = TeamBanner.first
-    @team = Team.all.limit(6)
+    @team = Team.all.order(created_at: :desc).limit(6)
   end
 
   def programs
